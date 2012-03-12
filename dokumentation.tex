@@ -1,0 +1,94 @@
+%%**************************************************************
+%% Vorlage fuer Bachelorarbeiten (o.ä.) der DHBW
+%%
+%% Autor: Tobias Dreher, Yves Fischer
+%% Datum: 06.07.2011
+%%**************************************************************
+
+\newcommand{\pdftitel}{Title of the document}
+\newcommand{\autor}{Max Mustermann}
+\newcommand{\arbeit}{Bachelor thesis}
+
+\input{header}
+
+% Ab jetzt können auch Umlaute verwendet werden
+\newcommand{\titel}{Usually the title of a Bachelor thesis has a length of two lines}
+\newcommand{\matrikelnr}{1234567}
+\newcommand{\kurs}{ABC2008DE}
+\newcommand{\datumAbgabe}{August 2011}
+\newcommand{\firma}{Firma GmbH}
+\newcommand{\firmenort}{Firmenort}
+\newcommand{\abgabeort}{Abgabeort}
+\newcommand{\abschluss}{Bachelor of Arts}
+\newcommand{\studiengang}{Vorderasiatische Archäologie}
+\newcommand{\dhbw}{Stuttgart Campus Horb}
+\newcommand{\betreuer}{Dipl.-Ing. (FH) Peter Pan}
+\newcommand{\gutachter}{Dr. Silvana Koch-Mehrin}
+\newcommand{\zeitraum}{12 Weeks}
+
+\makeglossaries
+\input{glossary}
+
+\begin{document}
+
+	% Deckblatt
+	\begin{spacing}{1}
+		\input{deckblatt}
+	\end{spacing}
+	\newpage
+	
+	\renewcommand{\thepage}{\Roman{page}}
+	\setcounter{page}{1}
+	
+	% Erklärung
+	\input{erklaerung}
+	\newpage
+
+	% Abstract
+	\input{abstract}
+	\newpage
+
+	% Inhaltsverzeichnis
+	\begin{spacing}{1.1}
+		\setcounter{tocdepth}{3}
+		\tableofcontents
+	\end{spacing}
+	\newpage
+
+	\renewcommand{\thepage}{\arabic{page}}
+	\setcounter{page}{1}
+
+	% Inhalt
+	\input{content/01kapitel}
+	\input{content/02kapitel}
+
+	% Anhang
+	\clearpage
+	\pagenumbering{roman}
+
+	% Abbildungsverzeichnis
+	\listoffigures
+	\addcontentsline{toc}{chapter}{List of Figures}
+
+	%Tabellenverzeichnis
+	\listoftables
+	\addcontentsline{toc}{chapter}{List of Tables}
+
+	% Quellcodeverzeichnis
+	\lstlistoflistings
+	\addcontentsline{toc}{chapter}{Listings}
+
+	% Literaturverzeichnis
+	\clearpage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{Bibliography}
+	\input{literatur}
+
+	% Abkürzungsverzeichnis
+	% vorher in Konsole folgendes aufrufen: 
+	%	makeglossaries makeglossaries dokumentation.acn && makeglossaries dokumentation.glo
+	\printglossary[type=\acronymtype]
+
+	% Glossar
+	\printglossary[style=altlist,title=Glossary]
+\end{document}

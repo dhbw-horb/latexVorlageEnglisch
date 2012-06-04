@@ -67,21 +67,27 @@
 	\pagenumbering{roman}
 
 	% Abbildungsverzeichnis
+	\cleardoublepage
+	\phantomsection \label{listoffig}
+	\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 	\listoffigures
-	\addcontentsline{toc}{chapter}{List of Figures}
 
 	%Tabellenverzeichnis
+	\cleardoublepage
+	\phantomsection \label{listoftab}
+	\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
 	\listoftables
-	\addcontentsline{toc}{chapter}{List of Tables}
 
 	% Quellcodeverzeichnis
-	\lstlistoflistings
+	\cleardoublepage
+	\phantomsection \label{listoflist}
 	\addcontentsline{toc}{chapter}{Listings}
+	\lstlistoflistings
 
 	% Literaturverzeichnis
-	\clearpage
-	\phantomsection
-	\addcontentsline{toc}{chapter}{Bibliography}
+	\cleardoublepage
+	\phantomsection \label{listoflit}
+	\addcontentsline{toc}{chapter}{Literaturverzeichnis}
 	\input{literatur}
 
 	% Abkürzungsverzeichnis
